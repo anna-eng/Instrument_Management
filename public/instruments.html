@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        
+        <title>Instrument Management App</title>
+    </head>
+    <body>
+        <input id="search" type="text" placeholder="Instrument Search">
+        <input type="button" value="Search" onClick="populateTable()">
+        <input type="button" value="Clear" onClick="clearSearch()">
+        <br><br>
+        <table  id = "instruments">
+            <tr>
+                <th>Name</th>
+                <th>Symbol</th>
+                <th>Type</th>
+            </tr>
+        </table>
+        <p>Create a new Instrument: </p>
+        <table>
+            <tr>
+                <td><input id="newName" type="text" placeholder="Name"></td>
+                <td><input id="newSymbol" type="text" placeholder="Symbol"></td>
+                <td><input id="newType" type="text" placeholder="Type"></td>
+                <td><input type="button" value="Create" onClick="createInstrument()"></td>
+            </tr>
+        </table>
+        <div id = 'error'></div>
+        <script id="instrument-template" type="text/html">
+            <div>
+                <tr>
+                    <td>{{name}}</td> 
+                    <td>{{symbol}}</td>
+                    <td>{{instrumentType}}</td>
+                    <td><input type="button" value="Delete" onClick="deleteInstrument({{instrumentId}});"/></td>
+                </tr>
+            </div>
+        </script>
+        
+    </body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/3.0.1/mustache.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qs/6.6.0/qs.min.js"></script>
+    <script src='./js/instruments.js'></script>
+</html>
